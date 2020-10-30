@@ -1,5 +1,6 @@
 package com.bisket.api.entity;
 
+import com.bisket.api.common.BusinessCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -57,4 +58,7 @@ public abstract class Business extends BaseEntity {
     private String businessTypeClassificationName;
     private String xCoordinate;
     private String yCoordinate;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "discriminator_type", nullable = false)
+    private BusinessCategory discriminatorType;
 }
