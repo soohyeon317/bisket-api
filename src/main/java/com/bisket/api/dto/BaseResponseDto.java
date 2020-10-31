@@ -7,6 +7,6 @@ import org.springframework.http.HttpStatus;
 @Getter @Setter
 public abstract class BaseResponseDto {
     private boolean success = true;
-    private int code = HttpStatus.OK.value();
+    private int statusCode = HttpStatus.OK.value();
     private String message;
 }

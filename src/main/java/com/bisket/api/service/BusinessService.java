@@ -35,7 +35,7 @@ public class BusinessService {
         } catch (Exception e) {
             log.error("getBusinessListByPage() Error\n{}", e);
             response.setSuccess(false);
-            response.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setMessage(HttpStatus.INTERNAL_SERVER_ERROR.name());
             return response;
         }
