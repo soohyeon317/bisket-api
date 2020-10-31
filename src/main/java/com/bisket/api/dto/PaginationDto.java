@@ -23,5 +23,6 @@ public class PaginationDto {
     @EqualsAndHashCode(callSuper = false)
     public static class PaginationResponseDto extends PaginationRequestDto {
         private int pageCount;
+        private long dataCount;
     }
 }

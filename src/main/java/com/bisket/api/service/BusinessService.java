@@ -5,7 +5,6 @@ import com.bisket.api.dto.ResponsePageDto;
 import com.bisket.api.repository.BusinessRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,23 +26,17 @@ public class BusinessService {
     public ResponsePageDto<List<BusinessDto.BusinessListPageGetResponseDto>> getBusinessListByPage(
             BusinessDto.BusinessListPageGetRequestDto searchConditions
     ) {
-        log.info("getBusinessListByPage() Call");
+        log.info("getBusinessListByPage() Invocation!!");
+
         ResponsePageDto<List<BusinessDto.BusinessListPageGetResponseDto>> response = new ResponsePageDto<List<BusinessDto.BusinessListPageGetResponseDto>>();
         Page<BusinessDto.BusinessListPageGetResponseDto> businessListPage = null;
-        try {
-            businessListPage = businessRepository.findBusinessListPageBySearchConditions(searchConditions);
-        } catch (Exception e) {
-            log.error("getBusinessListByPage() Error\n{}", e);
-            response.setSuccess(false);
-            response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            response.setMessage(HttpStatus.INTERNAL_SERVER_ERROR.name());
-            return response;
-        }
+        businessListPage = businessRepository.findBusinessListPageBySearchConditions(searchConditions);
 
         // ResponseDto 세팅
         response.setData(businessListPage.getContent());
         response.getPagination().setPageCount(businessListPage.getTotalPages());
         response.getPagination().setCurrentPageNumber(businessListPage.getPageable().getPageNumber() + 1);
+        response.getPagination().setDataCount(businessListPage.getTotalElements());
 
         return response;
     }
