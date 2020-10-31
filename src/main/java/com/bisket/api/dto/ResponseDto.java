@@ -1,14 +1,14 @@
 package com.bisket.api.dto;
 
-import com.bisket.api.common.Commons.ApiResponseResult;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseDto<T> {
-    private ApiResponseResult result = ApiResponseResult.FAIL;
+@EqualsAndHashCode(callSuper = true)
+public class ResponseDto<T> extends BaseResponseDto {
     private T data;
 }

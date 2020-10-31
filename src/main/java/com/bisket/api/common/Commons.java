@@ -6,10 +6,4 @@ public class Commons {
         return String.format("%s|%s|%s", openServiceId, openAutonomousBodyCode, managementCode);
     }
 
-    /**
-     * API 응답결과
-     */
-    public enum ApiResponseResult {
-        SUCCESS, FAIL
-    }
 }
