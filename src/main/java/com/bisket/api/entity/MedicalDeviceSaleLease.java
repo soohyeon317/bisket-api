@@ -10,12 +10,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("medical_device_sale_lease")
+@DiscriminatorValue("MEDICAL_DEVICE_SALE_LEASE")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MedicalDeviceSaleLease extends com.bisket.api.entity.Business {
+public class MedicalDeviceSaleLease extends Business {
     @Column(columnDefinition = "TEXT")
     private String repairTargetMedicalDeviceType;
     private String sidejobFlag;

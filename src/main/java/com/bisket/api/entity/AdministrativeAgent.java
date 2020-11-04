@@ -9,12 +9,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("administrative_agent")
+@DiscriminatorValue("ADMINISTRATIVE_AGENT")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdministrativeAgent extends com.bisket.api.entity.Business {
+public class AdministrativeAgent extends Business {
     private String registrationDate;
     private String changeTurn;
     private String changeDate;

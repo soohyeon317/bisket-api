@@ -10,12 +10,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("publishing")
+@DiscriminatorValue("PUBLISHING")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Publishing extends com.bisket.api.entity.Business {
+public class Publishing extends Business {
     private String cultureSportsBusinessLineName;
     private String culturalBusinessOperatorClassificationName;
     private String buildingFloorCount;

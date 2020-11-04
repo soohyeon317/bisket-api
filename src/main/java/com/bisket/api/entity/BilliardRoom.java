@@ -9,12 +9,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("billiard_room")
+@DiscriminatorValue("BILLIARD_ROOM")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BilliardRoom extends com.bisket.api.entity.Business {
+public class BilliardRoom extends Business {
     private String cultureSportsBusinessLineName;
     private String publicPrivateClassificationName;
     private String insuranceFlag;

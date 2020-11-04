@@ -10,12 +10,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("museum_art_gallery")
+@DiscriminatorValue("MUSEUM_ART_GALLERY")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MuseumArtGallery extends com.bisket.api.entity.Business {
+public class MuseumArtGallery extends Business {
     private String cultureSportsBusinessLineName;
     private String completionDate;
     private String hallOpenDate;

@@ -9,12 +9,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("electric_technology_design")
+@DiscriminatorValue("ELECTRIC_TECHNOLOGY_DESIGN")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ElectricTechnologyDesign extends com.bisket.api.entity.Business {
+public class ElectricTechnologyDesign extends Business {
     private String businessLineClassificationName;
     private String designSupervisionBusinessKindName;
     private String countryName;

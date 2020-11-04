@@ -9,12 +9,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("telemarketing")
+@DiscriminatorValue("TELEMARKETING")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Telemarketing extends com.bisket.api.entity.Business {
+public class Telemarketing extends Business {
     private String assetsScale;
     private String debtAmount;
     private String capital;
