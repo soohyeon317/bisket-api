@@ -28,9 +28,8 @@ public class BusinessService {
     ) {
         log.info("getBusinessListByPage() Invocation!!");
 
-        ResponsePageDto<List<BusinessDto.BusinessListPageGetResponseDto>> response = new ResponsePageDto<List<BusinessDto.BusinessListPageGetResponseDto>>();
-        Page<BusinessDto.BusinessListPageGetResponseDto> businessListPage = null;
-        businessListPage = businessRepository.findBusinessListPageBySearchConditions(searchConditions);
+        ResponsePageDto<List<BusinessDto.BusinessListPageGetResponseDto>> response = new ResponsePageDto<>();
+        Page<BusinessDto.BusinessListPageGetResponseDto> businessListPage = businessRepository.findBusinessListPageBySearchConditions(searchConditions);
 
         // ResponseDto 세팅
         response.setData(businessListPage.getContent());
