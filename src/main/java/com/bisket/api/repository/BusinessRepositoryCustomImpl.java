@@ -84,17 +84,20 @@ public class BusinessRepositoryCustomImpl extends QuerydslRepositorySupport impl
         }
 
         // 업체 카테고리명 목록 조건절
-        List<BusinessCategory> businessCategoryNameList = searchConditions.getBusinessCategoryNameList();
-        if (!CollectionUtils.isEmpty(businessCategoryNameList)) {
-            booleanBuilder.and(business.discriminatorType.in(businessCategoryNameList));
+        List<BusinessCategory> businessCategoryList = searchConditions.getBusinessCategoryList();
+        if (!CollectionUtils.isEmpty(businessCategoryList)) {
+            booleanBuilder.and(business.discriminatorType.in(businessCategoryList));
         }
 
         JPAQuery jpqlQuery = queryFactory
                 .select(Projections.fields(BusinessDto.BusinessListPageGetResponseDto.class,
-                        business.businessPlaceName))
+                        business.id,
+                        business.businessPlaceName,
+                        business.siteFullAddress,
+                        business.roadNameFullAddress,
+                        business.discriminatorType))
                 .from(business)
                 .where(booleanBuilder)
-//                .orderBy(business.businessPlaceName.asc())
                 .distinct();
 
         List<BusinessDto.BusinessListPageGetResponseDto> resultList = getQuerydsl().applyPagination(pageable, jpqlQuery).fetch();

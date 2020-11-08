@@ -1,11 +1,11 @@
 package com.bisket.api.controller;
 
+import com.bisket.api.common.BusinessCategory;
 import com.bisket.api.dto.BusinessDto;
+import com.bisket.api.dto.ResponseDto;
 import com.bisket.api.dto.ResponsePageDto;
 import com.bisket.api.service.BusinessService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +25,13 @@ public class BusinessController {
         return businessService.getBusinessListByPage(searchConditions);
     }
 
+    @GetMapping("/{id}")
+    public ResponseDto<BusinessDto.BusinessGetResponseDto> getOneBusinessDetail(
+            @PathVariable("id")
+                    Long id,
+            @RequestParam(value = "category")
+                    BusinessCategory businessCategory
+    ) {
+        return businessService.getOneBusinessDetail(id, businessCategory);
+    }
 }
